@@ -7,6 +7,12 @@ import { itemlist } from "../../lists/itemlist";
 export default function Home({search}){
     const items = useSelector((state) => state.items);
 
+    let filterItems = (item) => {
+        return item.name.toLowerCase().includes(search.toLowerCase())
+            || item.description.toLowerCase().includes(search.toLowerCase())
+            || item.brand.toLowerCase().includes(search.toLowerCase())
+    }
+
     return(
         <div
           style={{
@@ -25,7 +31,9 @@ export default function Home({search}){
                     marginBottom: 10,
                     flexWrap: "wrap",
                 }}>
-                {items.map((a) => <Item key={a.id} item={a} />)}
+                {items
+                    .filter(filterItems)
+                    .map((a) => <Item key={a.id} item={a} />)}
             </main>
         </div>)
 }
