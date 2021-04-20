@@ -1,4 +1,4 @@
-export default function Newitem(){
+export default function Home(){
     return(
         <div></div>
     );

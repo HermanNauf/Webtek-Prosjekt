@@ -1,5 +1,4 @@
-import "./styles.css";
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 // Pages
@@ -10,13 +9,12 @@ export default function App() {
 
   return (
     <div className="App">
-      <Navbar />
-
+      <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/new" component={Newitem} />
-        <Route path="/detail/:id" component={Detail} />
       </Switch>
+      </BrowserRouter>
 
     </div>
   );
