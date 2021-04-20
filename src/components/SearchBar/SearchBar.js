@@ -1,6 +1,5 @@
-import React from "react";
-
 export default function SearchBar({setSearch}) {
+
     return (
         <div>
             <input

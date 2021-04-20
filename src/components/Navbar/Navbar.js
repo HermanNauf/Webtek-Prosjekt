@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 
-export default function Navbar() {
+export default function Navbar({setSearch}) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -22,10 +22,7 @@ export default function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <form>
-            <SearchBar/>
-
-          </form>
+          <SearchBar setSearch={setSearch}/>
         </div>
       </div>
     </nav>
