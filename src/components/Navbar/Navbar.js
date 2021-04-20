@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Navbar() {
   return (
@@ -16,11 +17,15 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/new" activeClassName="active">
-                New post
+              <NavLink className="nav-link btn btn-outline-success" to="/new" activeClassName="active">
+                New item
               </NavLink>
             </li>
           </ul>
+          <form>
+            <SearchBar/>
+
+          </form>
         </div>
       </div>
     </nav>
