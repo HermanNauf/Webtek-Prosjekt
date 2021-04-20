@@ -1,9 +1,7 @@
 import {Switch, Route } from 'react-router-dom';
 import Navbar from "./components/Navbar/Navbar";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 
 
