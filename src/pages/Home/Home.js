@@ -1,13 +1,29 @@
 import React from "react";
-
-import SearchBar from "../../components/SearchBar/SearchBar";
+import { useSelector } from "react-redux";
+import Item from "../../components/items/item";
 
 export default function Home(){
-    const [search, setSearch] = React.useState("");
+    const items = useSelector((state) => state.items);
 
     return(
-        <div>
-            <SearchBar setSearch={setSearch} />
-        </div>
-    );
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}>
+
+            <main
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginTop: 10,
+                    marginBottom: 10,
+                    flexWrap: "wrap",
+                }}>
+                {items.map((a) => <Item key={a.id} item={a} />)}
+            </main>
+        </div>)
 }
