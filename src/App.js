@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import Home from "./pages/Home/Home";
 import Newitem from "./pages/Newitem/Newitem";
 import Login from "./pages/Login/Login";
-import Detail from "./pages/Details/itemDetail"
+import Detail from "./pages/Details/itemDetail";
 import { itemlist } from "./lists/itemlist";
 import { setItems } from "./actions/actions";
 import Cart from './components/Cart/cart';

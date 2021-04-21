@@ -7,9 +7,9 @@ import {setItems} from "../../actions/actions";
 export default function Detail() {
     const [item, setItem] = React.useState(null);
     const items = useSelector((state) => state.items);
+    const user = useSelector((state) => state.user);
 
     let history = useHistory();
-
 
     // We can use the `useParams` hook here to access
     // the dynamic pieces of the URL.
@@ -39,7 +39,9 @@ export default function Detail() {
             <p>
                 <b>ID: {item.id}</b>
             </p>
-            <button onClick={handleDelete}  className="btn btn-danger">Delete</button>
+            {user.hasOwnProperty("type") && user.type === "admin" && (
+                <button onClick={handleDelete}  className="btn btn-danger">Delete</button>
+            )}
         </div>
     ) : (<p>404: item not found</p>);
 }
