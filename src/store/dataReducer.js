@@ -19,7 +19,7 @@ const initialState = {
       case "SET_CART":
         return {
           ...state,
-          cartList: action.items
+          cartList: action.cartList
         }
       default:
         return state;
