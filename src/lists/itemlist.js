@@ -11,22 +11,22 @@ export const itemlist = [
         description: "Raske briller",
         brand: "Northug"
     },
-    {
-        id: "3",
-        name: "Briller",
-        description: "Raske briller",
-        brand: "Northug"
-    },
-    {
-        id: "4",
-        name: "Briller",
-        description: "Raske briller",
-        brand: "Northug"
-    },
-    {
-        id: "5",
-        name: "Briller",
-        description: "Raske briller",
-        brand: "Northug"
-    },
+    // {
+    //     id: "3",
+    //     name: "Briller",
+    //     description: "Raske briller",
+    //     brand: "Northug"
+    // },
+    // {
+    //     id: "4",
+    //     name: "Briller",
+    //     description: "Raske briller",
+    //     brand: "Northug"
+    // },
+    // {
+    //     id: "5",
+    //     name: "Briller",
+    //     description: "Raske briller",
+    //     brand: "Northug"
+    // },
     ]

@@ -9,6 +9,8 @@ import Home from "./pages/Home/Home";
 import Newitem from "./pages/Newitem/Newitem";
 import Login from "./pages/Login/Login";
 
+import Newitem from "./pages/Newitem/Newitem"
+import Detail from "./pages/Details/itemDetail"
 import { itemlist } from "./lists/itemlist";
 import { setItems } from "./actions/actions";
 
@@ -35,6 +37,7 @@ export default function App() {
           <Route exact path="/login">
               <Login />
           </Route>
+          <Route path="/detail/:id" component={Detail} />
       </Switch>
     </div>
   );
