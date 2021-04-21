@@ -26,7 +26,7 @@ export default function App() {
               <Home search={search} />
           </Route>
           <Route exact path="/new">
-              <Newitem />
+              <Newitem search={search}/>
           </Route>
       </Switch>
 
