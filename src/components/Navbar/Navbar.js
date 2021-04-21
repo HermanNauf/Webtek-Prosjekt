@@ -36,6 +36,9 @@ export default function Navbar({setSearch, user}) {
           </ul>
 
           <SearchBar setSearch={setSearch}/>
+          <NavLink className="nav-link" to="/cart" activeClassName="active">
+                Cart
+              </NavLink>
 
           {/* Displays greeting if logged in */}
           {user.hasOwnProperty("username") &&

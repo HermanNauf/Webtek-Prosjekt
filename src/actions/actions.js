@@ -15,4 +15,14 @@ export function setUser(user) {
         });
     };
 }
+
+export function setCartItems(cartList) {
+  return function (dispatch) {
+    dispatch({
+      type: "SET_CART",
+      cartList: cartList
+    });
+  };
+}
+
   
