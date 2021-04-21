@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 // Pages
 import Home from "./pages/Home/Home";
 import Newitem from "./pages/Newitem/Newitem"
+import Detail from "./pages/Details/itemDetail"
 import { itemlist } from "./lists/itemlist";
 import { setItems } from "./actions/actions";
 
@@ -28,7 +29,8 @@ export default function App() {
           <Route exact path="/new">
               <Newitem search={search}/>
           </Route>
-      </Switch>
+          <Route path="/detail/:id" component={Detail} />
+          </Switch>
 
     </div>
   );

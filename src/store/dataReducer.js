@@ -1,5 +1,6 @@
 const initialState = {
     items: [],
+    cartList:[],
   };
   
   function dataReducer(state = initialState, action) {
@@ -9,6 +10,11 @@ const initialState = {
           ...state,
           items: action.items
         };
+        case "SET_CART":
+        return {
+          ...state,
+          cartList: action.items
+        }
   
 
   

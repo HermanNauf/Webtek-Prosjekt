@@ -12,7 +12,7 @@ export default function Item({ item }) {
             <h6 className="card-subtitle mb-2 text-muted">Brand: {brand}</h6>
             <p className="card-text">{description}</p>
             <Link to={`/detail/${id}`} className="btn btn-info">
-            Post detail
+            Item detail
             </Link>
 
         </div>
