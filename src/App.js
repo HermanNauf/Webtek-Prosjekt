@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import Detail from "./pages/Details/itemDetail"
 import { itemlist } from "./lists/itemlist";
 import { setItems } from "./actions/actions";
+import Cart from './components/Cart/cart';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,8 @@ export default function App() {
               <Login />
           </Route>
           <Route path="/detail/:id" component={Detail} />
+
+          <Route path="/cart" component={Cart}/>
       </Switch>
     </div>
   );

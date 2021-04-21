@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setCartItems } from '../../actions/actions';
 
 
 export default function Item({ item }) {
     const { id, name, description, brand} = item;
+    const dispatch = useDispatch();
+    const cartList = useSelector((state) => state.cartList);
 
      return (
         <div className="card" style={{width: "30rem", marginBottom: "1rem"}}>
@@ -14,10 +18,21 @@ export default function Item({ item }) {
             <Link to={`/detail/${id}`} className="btn btn-info">
             Item detail
             </Link>
+            <button onClick={AddToCart}>Add to cart</button>
 
         </div>
       </div>
      );
+
+     function AddToCart(event){
+
+    
+        event.preventDefault();
+        dispatch(setCartItems([...cartList, item]));
+        console.log(cartList.length.toString())
+    
+     }
+ 
     //(
     //     <div style={useStyles()}>
     //         <h2>{title}</h2>
