@@ -5,5 +5,14 @@ export function setItems(items) {
         items: items
       });
     };
-  }
+}
+
+export function setUser(user) {
+    return function (dispatch) {
+        dispatch({
+            type: "SET_USER",
+            user: user
+        });
+    };
+}
   

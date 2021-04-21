@@ -2,8 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Item from "../../components/items/item";
 
-import { itemlist } from "../../lists/itemlist";
-
 export default function Home({search}){
     const items = useSelector((state) => state.items);
 

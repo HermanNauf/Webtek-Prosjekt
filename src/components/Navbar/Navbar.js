@@ -1,8 +1,18 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import {NavLink, Link, useHistory} from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
+import {setUser} from "../../actions/actions";
+import {useDispatch} from "react-redux";
 
-export default function Navbar({setSearch}) {
+export default function Navbar({setSearch, user}) {
+  const dispatch = useDispatch();
+  let history = useHistory();
+
+  function handleLogout() {
+    dispatch(setUser({}));
+    history.push("/");
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -23,6 +33,22 @@ export default function Navbar({setSearch}) {
             </li>
           </ul>
           <SearchBar setSearch={setSearch}/>
+          {/* Displays greeting if logged in */}
+          {user.hasOwnProperty("username") &&
+          <p>
+            Hello {user.username}!
+          </p>
+          }
+          {user.hasOwnProperty("username") ? (
+              <button className="nav-link btn btn-outline-success" onClick={handleLogout}>
+                Log Out
+              </button> )
+              : (
+              <NavLink className="nav-link btn btn-outline-success" to="/login" activeClassName="active">
+                Log In
+              </NavLink>
+              )
+          }
         </div>
       </div>
     </nav>

@@ -1,5 +1,6 @@
 const initialState = {
     items: [],
+    user: {}
   };
   
   function dataReducer(state = initialState, action) {
@@ -8,6 +9,11 @@ const initialState = {
         return {
           ...state,
           items: action.items
+        };
+      case "SET_USER":
+        return {
+          ...state,
+          user: action.user
         };
   
 
