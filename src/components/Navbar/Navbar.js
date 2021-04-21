@@ -2,10 +2,11 @@ import React from "react";
 import {NavLink, Link, useHistory} from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import {setUser} from "../../actions/actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
-export default function Navbar({setSearch, user}) {
+export default function Navbar({setSearch}) {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   let history = useHistory();
 
   function handleLogout() {
@@ -31,8 +32,7 @@ export default function Navbar({setSearch, user}) {
                   <NavLink className="nav-link btn btn-outline-success" to="/new" activeClassName="active">
                     New item
                   </NavLink>
-                </li>)
-            }
+                </li>)}
           </ul>
 
           <SearchBar setSearch={setSearch}/>
