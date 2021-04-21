@@ -26,13 +26,17 @@ export default function Navbar({setSearch, user}) {
                 Home
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link btn btn-outline-success" to="/new" activeClassName="active">
-                New item
-              </NavLink>
-            </li>
+            {user.hasOwnProperty("type") && user.type === "admin" && (
+                <li className="nav-item">
+                  <NavLink className="nav-link btn btn-outline-success" to="/new" activeClassName="active">
+                    New item
+                  </NavLink>
+                </li>)
+            }
           </ul>
+
           <SearchBar setSearch={setSearch}/>
+
           {/* Displays greeting if logged in */}
           {user.hasOwnProperty("username") &&
           <p>
@@ -43,11 +47,9 @@ export default function Navbar({setSearch, user}) {
               <button className="nav-link btn btn-outline-success" onClick={handleLogout}>
                 Log Out
               </button> )
-              : (
-              <NavLink className="nav-link btn btn-outline-success" to="/login" activeClassName="active">
+              : (<NavLink className="nav-link btn btn-outline-success" to="/login" activeClassName="active">
                 Log In
-              </NavLink>
-              )
+              </NavLink>)
           }
         </div>
       </div>
