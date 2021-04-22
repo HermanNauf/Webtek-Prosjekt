@@ -18,9 +18,11 @@ export default function CartItem({ item }) {
             <Link to={`/detail/${id}`} className="btn btn-info">
             Item detail
             </Link>
-
+            
         </div>
+        <hr/>
       </div>
+
      );
 
      function AddToCart(event){

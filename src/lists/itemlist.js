@@ -4,14 +4,14 @@ export const itemlist = [
         name: "Sko",
         description: "Raske sko",
         brand: "Nike",
-        price: "500"
+        price: 500,
     },
     {
         id: "1",
         name: "Briller",
         description: "Raske briller",
         brand: "Northug",
-        price: "1299"
+        price: 500,
     },
     // {
     //     id: "3",

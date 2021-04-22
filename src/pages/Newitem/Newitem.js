@@ -8,7 +8,7 @@ export default function Newitem() {
     const [name, setName] = React.useState("");
     const [description, setDescription] = React.useState("");
     const [brand, setBrand] =  React.useState("");
-    const [price, setPrice] = React.useState("");
+    const [price, setPrice] = React.useState(0);
 
     let history = useHistory();
 
@@ -68,7 +68,7 @@ export default function Newitem() {
                 <div className="mb-3">
                     <label className="form-label">Price</label>
                     <input
-                        onChange={(e) => setPrice(e.target.value)}
+                        onChange={(e) => setPrice(parseInt(e.target.value, 10))}
                         value={price}
                         type="text"
                         className="form-control"
