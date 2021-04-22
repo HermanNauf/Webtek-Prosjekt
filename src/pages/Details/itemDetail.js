@@ -39,6 +39,9 @@ export default function Detail() {
             <p>
                 <b>ID: {item.id}</b>
             </p>
+            <p>
+                <b>Price: {item.price + "kr"}</b>
+            </p>
             {user.hasOwnProperty("type") && user.type === "admin" && (
                 <button onClick={handleDelete}  className="btn btn-danger">Delete</button>
             )}

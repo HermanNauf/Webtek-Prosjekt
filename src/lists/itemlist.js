@@ -3,13 +3,15 @@ export const itemlist = [
         id: "0",
         name: "Sko",
         description: "Raske sko",
-        brand: "Nike"
+        brand: "Nike",
+        price: "500"
     },
     {
         id: "1",
         name: "Briller",
         description: "Raske briller",
-        brand: "Northug"
+        brand: "Northug",
+        price: "1299"
     },
     // {
     //     id: "3",

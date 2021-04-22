@@ -8,6 +8,7 @@ export default function Newitem() {
     const [name, setName] = React.useState("");
     const [description, setDescription] = React.useState("");
     const [brand, setBrand] =  React.useState("");
+    const [price, setPrice] = React.useState("");
 
     let history = useHistory();
 
@@ -24,7 +25,8 @@ export default function Newitem() {
             id: id,
             name: name,
             description: description,
-            brand: brand
+            brand: brand,
+            price: price
         };
         dispatch(setItems([...items, newItem]));
         history.push("/");
@@ -59,6 +61,15 @@ export default function Newitem() {
                     <input
                         onChange={(e) => setBrand(e.target.value)}
                         value={brand}
+                        type="text"
+                        className="form-control"
+                    />
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">Price</label>
+                    <input
+                        onChange={(e) => setPrice(e.target.value)}
+                        value={price}
                         type="text"
                         className="form-control"
                     />
