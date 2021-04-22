@@ -7,7 +7,10 @@ import {useDispatch, useSelector} from "react-redux";
 export default function Navbar({setSearch}) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+
   let history = useHistory();
+
+  let cartSize = useSelector((state) => state.cartList).length;
 
   function handleLogout() {
     dispatch(setUser({}));
@@ -37,7 +40,7 @@ export default function Navbar({setSearch}) {
 
           <SearchBar setSearch={setSearch}/>
           <NavLink className="nav-link" to="/cart" activeClassName="active">
-                Cart
+                Cart {cartSize > 0 && "(" + cartSize + ")"}
               </NavLink>
 
           {/* Displays greeting if logged in */}
