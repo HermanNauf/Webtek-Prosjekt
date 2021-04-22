@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector} from "react-redux";
 
-import Item from "../../components/items/item";
+import CartItem from "../../components/Cart/cartitems";
 
 export default function Cart(){
     const cartList = useSelector((state) => state.cartList);
@@ -11,6 +11,9 @@ export default function Cart(){
     return(
         <div
           style={{
+            marginLeft: "35rem",
+            width: "31rem",
+            border: "1px solid grey",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -25,7 +28,7 @@ export default function Cart(){
                     marginBottom: 10,
                 }}>
 
-                {cartList.map((a) => <Item key={a.id} item={a} />)}
+                {cartList.map((a) => <CartItem key={a.id} item={a} />)}
             </main>
         </div>
         )
