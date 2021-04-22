@@ -1,5 +1,8 @@
 import React from 'react';
 import { useSelector} from "react-redux";
+import Checkout from "../../pages/Checkout/checkout"
+import { Link } from "react-router-dom";
+
 
 import CartItem from "../../components/Cart/cartitems";
 
@@ -43,9 +46,8 @@ export default function Cart(){
                         <h2>Items:<br/></h2>
                         <h4 style = {{whiteSpace: "pre-wrap", }}>{cartList.map((a) => "1x " + a.name).join("\n")}</h4>
                         <h5><hr/>Total:{calculatePrice(cartList)}</h5>
-                        
-                        
-                        
+                        <Link className="btn btn-success" to="/checkout">Go to checkout</Link>
+
                         </div>
         </div>
         )

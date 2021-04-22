@@ -19,7 +19,7 @@ export default function Item({ item }) {
             <Link to={`/detail/${id}`} className="btn btn-info">
             Item detail
             </Link>
-            <button onClick={AddToCart}>Add to cart</button>
+            <button className="btn btn-success" onClick={AddToCart}>Add to cart</button>
 
         </div>
       </div>
