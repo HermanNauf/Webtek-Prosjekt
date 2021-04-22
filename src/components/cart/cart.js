@@ -20,10 +20,7 @@ export default function Cart(){
             justifyContent: "center",
             alignItems: "center",
           }}
-        ><h1 style={{position:"absolute",
-                    right: "35rem",
-                    height: "26rem",
-                      }}>Total:{calculatePrice(cartList)}</h1>
+        >
             <main
                 style={{
                     display: "flex",
@@ -31,9 +28,25 @@ export default function Cart(){
                     marginTop: 10,
                     marginBottom: 10,
                 }}>
-
                 {cartList.map((a) => <CartItem key={a.id} item={a} />)}
             </main>
+            <div style={{position:"absolute",
+                    right: "35rem",
+                    height: "auto",
+                    border: "2px solid lightgrey",
+                    top: "5rem",
+                      }}>
+                        <h1 style = {{                    
+                          paddingLeft: "3rem",
+                          paddingRight: "3rem",}}>Total</h1>
+                        <hr/>
+                        <h2>Items:<br/></h2>
+                        <h4 style = {{whiteSpace: "pre-wrap", }}>{cartList.map((a) => "1x " + a.name).join("\n")}</h4>
+                        <h5><hr/>Total:{calculatePrice(cartList)}</h5>
+                        
+                        
+                        
+                        </div>
         </div>
         )
 }
@@ -41,5 +54,5 @@ function calculatePrice(list){
   let total = 0;
   list.map((a) => total += a.price)
 
-  return total;
+  return total + "kr";
 }
