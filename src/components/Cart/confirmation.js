@@ -1,19 +1,18 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import { useSelector, useDispatch} from "react-redux";
+import {setCartItems} from "../../actions/actions";
+import { Link, useHistory } from "react-router-dom";
 
 
-import CartItem from "./cartitems";
 
-export default function Cart() {
+export default function Confirmation(){
     const cartList = useSelector((state) => state.cartList);
-
+    const dispatch = useDispatch();
+    let history = useHistory();
 
     return (
         <div
             style={{
-                marginLeft: "10rem",
-                marginRight: "10rem",
                 display: "flex",
                 flexDirection: "row",
                 flexWrap: "no-wrap",
@@ -21,21 +20,8 @@ export default function Cart() {
                 alignItems: "flex-start",
             }}
         >
-            <main
-                style={{
-                    display: "flex",
-                    flexDirection: "column-reverse",
-                    marginTop: 10,
-                    marginBottom: 10,
-                }}>
-                {cartList.map((a) => <CartItem key={a.cartKey} item={a}/>)}
-            </main>
             <div style={{
-                position: "fixed",
-                height: "auto",
                 border: "2px solid lightgrey",
-                top: "5rem",
-                right: "3rem"
             }}>
                 <h1 style={{
                     paddingLeft: "3rem",
@@ -47,15 +33,21 @@ export default function Cart() {
                 <h5>
                     <hr/>
                     Total: {calculatePrice(cartList)}</h5>
-                <Link className="btn btn-success" to="/checkout">Go to checkout</Link>
+                <button onClick={handlePay} className="btn btn-success" to="/checkout">Ok</button>
             </div>
         </div>
     )
-}
+    function calculatePrice(list) {
+        let total = 0;
+        list.map((a) => total += a.price)
+    
+        return total + "kr";
+    }
+    function handlePay(){
+        // TODO Push cartlist to backend for processing
+    
+        dispatch(setCartItems([]));
+        history.push("/");
+    }
 
-function calculatePrice(list) {
-    let total = 0;
-    list.map((a) => total += a.price)
-
-    return total + "kr";
 }

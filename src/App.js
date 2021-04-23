@@ -13,6 +13,7 @@ import Detail from "./pages/Details/itemDetail";
 import { itemlist } from "./lists/itemlist";
 import { setItems } from "./actions/actions";
 import Cart from './components/Cart/Cart';
+import Confirmation from "./components/Cart/confirmation";
 
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/detail/:id" component={Detail} />
           <Route path="/cart" component={Cart}/>
           <Route path ="/checkout" component = {Checkout}/>
+          <Route path ="/confirmation" component = {Confirmation} />
       </Switch>
     </div>
   );
