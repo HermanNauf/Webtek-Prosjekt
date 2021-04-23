@@ -31,9 +31,11 @@ export default function Cart() {
                 {cartList.map((a) => <CartItem key={a.cartKey} item={a}/>)}
             </main>
             <div style={{
+                position: "fixed",
                 height: "auto",
                 border: "2px solid lightgrey",
                 top: "5rem",
+                right: "3rem"
             }}>
                 <h1 style={{
                     paddingLeft: "3rem",
