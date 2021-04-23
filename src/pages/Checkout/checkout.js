@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch} from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {setCartItems} from "../../actions/actions";
 
 export default function Checkout(){
@@ -61,9 +61,9 @@ export default function Checkout(){
                         className="form-control"
                     />
                 </div>
-                <button onClick={handlePay} className="btn btn-primary">
+                <Link to= "/confirmation" className="btn btn-primary">
                     Pay
-                </button>
+                </Link>
             </form>
 
     );
