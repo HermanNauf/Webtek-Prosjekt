@@ -16,6 +16,7 @@ export default function Cart() {
                 marginRight: "10rem",
                 display: "flex",
                 flexDirection: "row",
+                flexWrap: "wrap",
                 justifyContent: "space-around",
                 alignItems: "center",
             }}
@@ -30,8 +31,6 @@ export default function Cart() {
                 {cartList.map((a) => <CartItem key={a.cartKey} item={a}/>)}
             </main>
             <div style={{
-                position: "absolute",
-                right: "5rem",
                 height: "auto",
                 border: "2px solid lightgrey",
                 top: "5rem",
