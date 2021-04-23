@@ -25,28 +25,7 @@ export default function CartItem({ item }) {
             </Link> */}
             
         </div>
-        <hr/>
       </div>
 
      );
-
-     function AddToCart(event){
-
-    
-        event.preventDefault();
-        dispatch(setCartItems([...cartList, item]));
-        console.log(cartList.length.toString())
-    
-     }
- 
-    //(
-    //     <div style={useStyles()}>
-    //         <h2>{title}</h2>
-    //         <p>{body}</p>
-    //         <p>Author: {author}</p>
-    //         <Link to={`/detail/${title}`} className="btn btn-info">
-    //       Product Details
-    //     </Link>
-    //     </div>
-    // );
 }

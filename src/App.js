@@ -12,7 +12,7 @@ import Checkout from "./pages/Checkout/checkout";
 import Detail from "./pages/Details/itemDetail";
 import { itemlist } from "./lists/itemlist";
 import { setItems } from "./actions/actions";
-import Cart from './components/Cart/cart';
+import Cart from './components/Cart/Cart';
 
 
 export default function App() {
@@ -39,7 +39,6 @@ export default function App() {
               <Login />
           </Route>
           <Route path="/detail/:id" component={Detail} />
-
           <Route path="/cart" component={Cart}/>
           <Route path ="/checkout" component = {Checkout}/>
       </Switch>
