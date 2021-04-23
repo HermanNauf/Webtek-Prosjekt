@@ -1,8 +1,10 @@
 import React from "react";
-import { useSelector} from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
 import { useHistory } from "react-router-dom";
+import {setCartItems} from "../../actions/actions";
 
 export default function Checkout(){
+    const dispatch = useDispatch();
     let cartList = useSelector((state) => state.cartList);
     let history = useHistory()
 
@@ -69,8 +71,9 @@ export default function Checkout(){
 
     //Sends the user back to main page, and sets the content of cart to 0.
     function handlePay(){
+        // TODO Push cartlist to backend for processing
+
+        dispatch(setCartItems([]));
         history.push("/");
-        cartList.length = 0;
-    
     }
 }
