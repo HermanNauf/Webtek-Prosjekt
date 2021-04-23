@@ -16,9 +16,9 @@ export default function Cart() {
                 marginRight: "10rem",
                 display: "flex",
                 flexDirection: "row",
-                flexWrap: "wrap",
+                flexWrap: "no-wrap",
                 justifyContent: "space-around",
-                alignItems: "center",
+                alignItems: "flex-start",
             }}
         >
             <main
