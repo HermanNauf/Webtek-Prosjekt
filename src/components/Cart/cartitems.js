@@ -19,7 +19,7 @@ export default function CartItem({ item }) {
             <h5 className="card-title">{name}</h5>
             <h6 className="card-subtitle mb-2 text-muted">Brand: {brand}</h6>
             <p className="card-text">{"Pris: " + price + "kr"}</p>
-            <button onClick={handleRemove}>Remove</button>
+            <button className = "btn btn-danger"onClick={handleRemove}>Remove</button>
             {/* <Link to={`/detail/${id}`} className="btn btn-info">
             Item detail
             </Link> */}
