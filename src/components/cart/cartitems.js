@@ -10,14 +10,14 @@ export default function CartItem({ item }) {
     const cartList = useSelector((state) => state.cartList);
 
      return (
-        <div className="card" style={{width: "30rem", marginBottom: "1rem"}}>
+        <div className="card" style={{width: "20rem", marginBottom: "1rem"}}>
         <div className="card-body">
             <h5 className="card-title">{name}</h5>
             <h6 className="card-subtitle mb-2 text-muted">Brand: {brand}</h6>
             <p className="card-text">{"Pris: " + price + "kr"}</p>
-            <Link to={`/detail/${id}`} className="btn btn-info">
+            {/* <Link to={`/detail/${id}`} className="btn btn-info">
             Item detail
-            </Link>
+            </Link> */}
             
         </div>
         <hr/>

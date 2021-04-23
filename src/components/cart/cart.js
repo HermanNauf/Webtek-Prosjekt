@@ -15,7 +15,7 @@ export default function Cart(){
         <div
           style={{
             marginLeft: "35rem",
-            width: "31rem",
+            width: "25rem",
             border: "2px solid lightgrey",
             borderRadius: "5px",
             display: "flex",
