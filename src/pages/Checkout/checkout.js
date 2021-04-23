@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setItems } from "../../actions/actions";
+import { useSelector} from "react-redux";
 import { useHistory } from "react-router-dom";
 
 export default function Checkout(){
@@ -66,6 +65,9 @@ export default function Checkout(){
             </form>
 
     );
+
+
+    //Sends the user back to main page, and sets the content of cart to 0.
     function handlePay(){
         history.push("/");
         cartList.length = 0;

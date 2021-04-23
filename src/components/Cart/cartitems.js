@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setCartItems } from '../../actions/actions';
 
 
 export default function CartItem({ item }) {
-    const { id, name, description, brand, price, cartKey} = item;
+    const { name, brand, price, cartKey} = item;
     const dispatch = useDispatch();
     const cartList = useSelector((state) => state.cartList);
 
@@ -21,7 +20,6 @@ export default function CartItem({ item }) {
             <h6 className="card-subtitle mb-2 text-muted">Brand: {brand}</h6>
             <p className="card-text">{"Pris: " + price + "kr"}</p>
             <button onClick={handleRemove}>Remove</button>
-            <p>Key: {cartKey}</p>
             {/* <Link to={`/detail/${id}`} className="btn btn-info">
             Item detail
             </Link> */}
