@@ -4,7 +4,7 @@ import Checkout from "../../pages/Checkout/checkout"
 import { Link } from "react-router-dom";
 
 
-import CartItem from "../../components/Cart/cartitems";
+import CartItem from ".//cartitems";
 
 export default function Cart(){
     const cartList = useSelector((state) => state.cartList);
@@ -31,7 +31,7 @@ export default function Cart(){
                     marginTop: 10,
                     marginBottom: 10,
                 }}>
-                {cartList.map((a) => <CartItem key={a.id} item={a} />)}
+                {cartList.map((a) => <CartItem key={a.cartKey} item={a} />)}
             </main>
             <div style={{position:"absolute",
                     right: "35rem",

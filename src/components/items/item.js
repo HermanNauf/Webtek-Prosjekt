@@ -26,12 +26,34 @@ export default function Item({ item }) {
      );
 
      function AddToCart(event){
-
-    
         event.preventDefault();
-        dispatch(setCartItems([...cartList, item]));
-        console.log(cartList.length.toString())
-    
+
+        const newCartItem = {
+            id: id,
+            name: name,
+            description: description,
+            brand: brand,
+            price: price,
+            cartKey: createCartKey()
+        };
+
+        dispatch(setCartItems([...cartList, newCartItem]));
+        console.log(newCartItem.cartKey);
+     }
+
+     function createCartKey() {
+         let key = cartList.length;
+
+         let usedKeys = [];
+         cartList.forEach((i) => usedKeys.push(i.cartKey));
+
+         cartList.forEach(() => {
+             if (usedKeys.includes(key)) {
+                 key++
+             }
+         });
+
+         return key;
      }
  
     //(
