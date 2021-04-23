@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setCartItems } from '../../actions/actions';
 
 
 export default function CartItem({ item }) {
-    const { id, name, description, brand, price} = item;
+    const { name, brand, price} = item;
     const dispatch = useDispatch();
     const cartList = useSelector((state) => state.cartList);
 

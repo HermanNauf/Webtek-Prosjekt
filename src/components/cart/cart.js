@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector} from "react-redux";
-import Checkout from "../../pages/Checkout/checkout"
 import { Link } from "react-router-dom";
 
 
