@@ -9,12 +9,20 @@ export default function Newitem() {
     const [description, setDescription] = React.useState("");
     const [brand, setBrand] =  React.useState("");
     const [price, setPrice] = React.useState(0);
+    const [priceTempStr, setPriceTempStr] = React.useState("");
+    const [validPrice, setValidPrice] = React.useState(false);
 
     let history = useHistory();
 
     const dispatch = useDispatch();
     const items = useSelector((state) => state.items);
     const user = useSelector((state) => state.user);
+
+
+    function parsePrice() {
+        setValidPrice(priceTempStr.length > 0 && !isNaN(priceTempStr));
+        setPrice(parseInt(priceTempStr));
+    }
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -68,13 +76,17 @@ export default function Newitem() {
                 <div className="mb-3">
                     <label className="form-label">Price</label>
                     <input
-                        onChange={(e) => setPrice(parseInt(e.target.value, 10))}
-                        value={price}
+                        onChange={(e) => {
+                            setPriceTempStr(e.target.value);
+                            parsePrice();
+                        }}
+                        value={priceTempStr}
                         type="text"
                         className="form-control"
                     />
+                    {!validPrice && <p color="red">Invalid price!</p>}
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary" disabled={!validPrice}>
                     Submit
                 </button>
             </form>
@@ -82,8 +94,4 @@ export default function Newitem() {
     } else {
         return <h1>Denied</h1>
     }
-
-
-
-
 }
