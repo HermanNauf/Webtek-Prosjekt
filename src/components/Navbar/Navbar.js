@@ -7,10 +7,13 @@ import {useDispatch, useSelector} from "react-redux";
 export default function Navbar({setSearch}) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const cartList = useSelector((state) => state.cartList);
 
   let history = useHistory();
 
-  let cartSize = useSelector((state) => state.cartList).length;
+  let cartSize = 0;
+
+  cartList.forEach((i) => cartSize += i.quantity);
 
   function handleLogout() {
     dispatch(setUser({}));

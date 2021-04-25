@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch} from "react-redux";
-import {setCartItems} from "../../actions/actions";
-import { Link, useHistory } from "react-router-dom";
-
-
+import { setCartItems } from "../../actions/actions";
+import { useHistory } from "react-router-dom";
+import { calculatePrice } from "./Cart"
 
 export default function Confirmation(){
     const cartList = useSelector((state) => state.cartList);
@@ -29,7 +28,7 @@ export default function Confirmation(){
                 }}>Total</h1>
                 <hr/>
                 <h2>Items: <br/></h2>
-                <h4 style={{whiteSpace: "pre-wrap",}}>{cartList.map((a) => "1x " + a.name).join("\n")}</h4>
+                <h4 style={{whiteSpace: "pre-wrap",}}>{cartList.map((a) => a.quantity + "x " + a.name).join("\n")}</h4>
                 <h5>
                     <hr/>
                     Total: {calculatePrice(cartList)}</h5>
@@ -37,14 +36,9 @@ export default function Confirmation(){
             </div>
         </div>
     )
-    function calculatePrice(list) {
-        let total = 0;
-        list.map((a) => total += a.price)
-    
-        return total + "kr";
-    }
+
     function handlePay(){
-        // TODO Push cartlist to backend for processing
+        // TODO Post cartList to backend for processing
     
         dispatch(setCartItems([]));
         history.push("/");
