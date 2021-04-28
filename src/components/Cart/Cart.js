@@ -28,7 +28,7 @@ export default function Cart() {
                     marginTop: 10,
                     marginBottom: 10,
                 }}>
-                {cartList.map((a) => <CartItem key={a.cartKey} item={a}/>)}
+                {cartList.map((a) => <CartItem key={a.id} item={a}/>)}
             </main>
             <div style={{
                 position: "fixed",
@@ -43,7 +43,7 @@ export default function Cart() {
                 }}>Total</h1>
                 <hr/>
                 <h2>Items: <br/></h2>
-                <h4 style={{whiteSpace: "pre-wrap",}}>{cartList.map((a) => "1x " + a.name).join("\n")}</h4>
+                <h4 style={{whiteSpace: "pre-wrap",}}>{cartList.map((a) => a.quantity + "x " + a.name).join("\n")}</h4>
                 <h5>
                     <hr/>
                     Total: {calculatePrice(cartList)}</h5>
@@ -53,9 +53,9 @@ export default function Cart() {
     )
 }
 
-function calculatePrice(list) {
+export function calculatePrice(list) {
     let total = 0;
-    list.map((a) => total += a.price)
+    list.map((a) => total += (a.price * a.quantity));
 
     return total + "kr";
 }

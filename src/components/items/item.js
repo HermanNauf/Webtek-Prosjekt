@@ -19,51 +19,35 @@ export default function Item({ item }) {
             <Link to={`/detail/${id}`} className="btn btn-info">
             Item detail
             </Link>
-            <button className="btn btn-success" onClick={AddToCart}>Add to cart</button>
+            <button className="btn btn-success" onClick={addToCart}>Add to cart</button>
 
         </div>
       </div>
      );
 
-     function AddToCart(event){
+     function addToCart(event){
         event.preventDefault();
 
-        const newCartItem = {
-            id: id,
-            name: name,
-            description: description,
-            brand: brand,
-            price: price,
-            cartKey: createCartKey()
-        };
+        let itemInCart = false;
 
-        dispatch(setCartItems([...cartList, newCartItem]));
-        console.log(newCartItem.cartKey);
+        cartList.forEach((i) => i.id === item.id ? itemInCart = true : itemInCart = false);
+
+        if (cartList.length === 0 || !itemInCart) {
+            const newCartItem = {
+                id: item.id,
+                name: item.name,
+                description: item.description,
+                brand: item.brand,
+                price: item.price,
+                quantity: 1
+            }
+            dispatch(setCartItems([...cartList, newCartItem]));
+            console.log(newCartItem.id);
+        } else {
+            const index = cartList.findIndex((i) => i.id === item.id);
+            cartList[index].quantity += 1;
+
+            dispatch(setCartItems([...cartList]));
+        }
      }
-
-     function createCartKey() {
-         let key = cartList.length;
-
-         let usedKeys = [];
-         cartList.forEach((i) => usedKeys.push(i.cartKey));
-
-         cartList.forEach(() => {
-             if (usedKeys.includes(key)) {
-                 key++
-             }
-         });
-
-         return key;
-     }
- 
-    //(
-    //     <div style={useStyles()}>
-    //         <h2>{title}</h2>
-    //         <p>{body}</p>
-    //         <p>Author: {author}</p>
-    //         <Link to={`/detail/${title}`} className="btn btn-info">
-    //       Product Details
-    //     </Link>
-    //     </div>
-    // );
 }
