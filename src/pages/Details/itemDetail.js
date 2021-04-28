@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 
 import {useHistory, useParams} from "react-router-dom";
 import {setItems} from "../../actions/actions";
+import axios from "axios";
 
 export default function Detail() {
     const [item, setItem] = React.useState({});
@@ -17,6 +18,16 @@ export default function Detail() {
     console.log(id)
 
     function handleDelete() {
+
+        axios({
+            method: "post",
+            url: "http://localhost:8080/api/product/delete",
+            data: item
+        })
+            .catch(error => {
+            console.log(error)
+        })
+
             items.splice(items.indexOf(item), 1);
             setItems(items.filter(p => p.id !== item.id));
             history.push("/");
