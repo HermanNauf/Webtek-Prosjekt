@@ -23,7 +23,7 @@ export default function Detail() {
     }
 
     React.useEffect(() => {
-        const founditem = items.find((p) => p.id === id);
+        const founditem = items.find((p) => p.id == id);
         setItem(founditem);
     }, [id, items]);
 
