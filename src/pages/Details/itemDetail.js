@@ -5,7 +5,7 @@ import {useHistory, useParams} from "react-router-dom";
 import {setItems} from "../../actions/actions";
 
 export default function Detail() {
-    const [item, setItem] = React.useState(null);
+    const [item, setItem] = React.useState({});
     const items = useSelector((state) => state.items);
     const user = useSelector((state) => state.user);
 

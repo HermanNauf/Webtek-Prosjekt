@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setItems } from "../../actions/actions";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 
 export default function Newitem() {
@@ -15,9 +16,7 @@ export default function Newitem() {
     let history = useHistory();
 
     const dispatch = useDispatch();
-    const items = useSelector((state) => state.items);
     const user = useSelector((state) => state.user);
-
 
     function parsePrice() {
         setValidPrice(priceTempStr.length > 0 && !isNaN(priceTempStr));
@@ -27,16 +26,24 @@ export default function Newitem() {
     function handleSubmit(event) {
         event.preventDefault();
 
-        const id = items.length.toString();
-
         const newItem = {
-            id: id,
             name: name,
             description: description,
             brand: brand,
             price: price
         };
-        dispatch(setItems([...items, newItem]));
+        axios({
+            method: "post",
+            url: "http://localhost:8080/api/product/addProduct",
+            data: newItem
+        })
+            .then(response => {
+                dispatch(setItems(response.data));
+                console.log(response.data)
+
+            }).catch(error => {
+            console.log(error)
+        })
         history.push("/");
     }
 

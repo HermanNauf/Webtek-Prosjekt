@@ -14,7 +14,7 @@ import { itemlist } from "./lists/itemlist";
 import { setItems } from "./actions/actions";
 import Cart from './components/Cart/Cart';
 import Confirmation from "./components/Cart/confirmation";
-import axios, * as others from 'axios';
+import axios from 'axios';
 
 
 export default function App() {
