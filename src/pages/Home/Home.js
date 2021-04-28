@@ -9,15 +9,6 @@ import axios, * as others from 'axios';
 export default function Home({search}){
     const items = useSelector((state) => state.items);
     const {data, setData} = useState(null);
-
-    useEffect(() => {
-        axios("http://localhost:8080/api/product/products",{ mode: 'no-cors'})
-        .then(response => {
-        setData(response.data) 
-     }).catch(error => {
-            console.log(error)
-        })
-    },[])
     let filterItems = (item) => {
         return item.name.toLowerCase().includes(search.toLowerCase())
             || item.description.toLowerCase().includes(search.toLowerCase())

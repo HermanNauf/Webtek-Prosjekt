@@ -14,6 +14,7 @@ import { itemlist } from "./lists/itemlist";
 import { setItems } from "./actions/actions";
 import Cart from './components/Cart/Cart';
 import Confirmation from "./components/Cart/confirmation";
+import axios, * as others from 'axios';
 
 
 export default function App() {
@@ -23,7 +24,15 @@ export default function App() {
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(setItems(itemlist));
+    axios("http://localhost:8080/api/product/products")
+        .then(response => {
+            dispatch(setItems(response.data));
+            console.log(response.data)
+
+     }).catch(error => {
+            console.log(error)
+        })
+
   }, [dispatch]);
 
   return (
