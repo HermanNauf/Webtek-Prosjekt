@@ -1,12 +1,44 @@
-import React from 'react';
-import {useSelector} from "react-redux";
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 
 import CartItem from "./cartitems";
+import axios from "axios";
+import {setCartItems} from "../../actions/actions";
 
 export default function Cart() {
+    const dispatch = useDispatch();
     const cartList = useSelector((state) => state.cartList);
+    const user = useSelector((state) => state.user);
+
+    useEffect(() => {
+        if (user.id !== undefined) {
+            axios("http://localhost:8080/api/cart/products/" + user.id)
+                .then(response => {
+                    dispatch(setCartItems(response.data));
+                    console.log(response.data)
+                }).catch(error => {
+                console.log(error)
+            })
+        }
+
+    }, [dispatch]);
+
+    let cart = [];
+
+    cartList.forEach((i) => {
+
+        const product = {
+            id: i.id,
+            name: i.name,
+            brand: i.brand,
+            price: i.price,
+            quantity: i.quantity
+
+        }
+        cart = [...cart, product]
+    })
 
 
     return (
@@ -28,7 +60,7 @@ export default function Cart() {
                     marginTop: 10,
                     marginBottom: 10,
                 }}>
-                {cartList.map((a) => <CartItem key={a.id} item={a}/>)}
+                {cart.map((a) => <CartItem key={a.id} item={a}/>)}
             </main>
             <div style={{
                 position: "fixed",

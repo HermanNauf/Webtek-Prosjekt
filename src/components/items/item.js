@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setCartItems } from '../../actions/actions';
+import axios from "axios";
 
 
 export default function Item({ item }) {
     const { id, name, description, brand, price} = item;
-    const dispatch = useDispatch();
-    const cartList = useSelector((state) => state.cartList);
+
+    const user = useSelector((state) => state.user);
 
      return (
         <div className="card" style={{width: "30rem", marginBottom: "1rem"}}>
@@ -28,26 +29,14 @@ export default function Item({ item }) {
      function addToCart(event){
         event.preventDefault();
 
-        let itemInCart = false;
-
-        cartList.forEach((i) => i.id === item.id ? itemInCart = true : itemInCart = false);
-
-        if (cartList.length === 0 || !itemInCart) {
-            const newCartItem = {
-                id: item.id,
-                name: item.name,
-                description: item.description,
-                brand: item.brand,
-                price: item.price,
-                quantity: 1
-            }
-            dispatch(setCartItems([...cartList, newCartItem]));
-            console.log(newCartItem.id);
-        } else {
-            const index = cartList.findIndex((i) => i.id === item.id);
-            cartList[index].quantity += 1;
-
-            dispatch(setCartItems([...cartList]));
-        }
+        axios({
+            method: "post",
+            url: "http://localhost:8080/api/cart/addToCart/" + user.id,
+            data: item
+        }).then((response) => {
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
      }
 }
