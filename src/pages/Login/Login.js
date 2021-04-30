@@ -1,7 +1,6 @@
 import React from "react";
 
 import {useDispatch} from "react-redux";
-import {useHistory} from "react-router-dom";
 import {setUser} from "../../actions/actions";
 
 import axios from "axios";
@@ -9,8 +8,6 @@ import axios from "axios";
 export default function Login() {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
-
-    let history = useHistory();
 
     const dispatch = useDispatch();
 
