@@ -31,13 +31,16 @@ export default function App() {
             }).catch(error => {
             console.log(error)
         })
-        axios("http://localhost:8080/api/cart/products/" + user.id)
-            .then(response => {
-                dispatch(setCartItems(response.data));
-                console.log(response.data)
-            }).catch(error => {
-            console.log(error)
-        })
+        if (undefined !== user.id) {
+            axios("http://localhost:8080/api/cart/products/" + user.id)
+                .then(response => {
+                    dispatch(setCartItems(response.data));
+                    console.log(response.data)
+                }).catch(error => {
+                console.log(error)
+            })
+        }
+
 
     }, [dispatch]);
 
