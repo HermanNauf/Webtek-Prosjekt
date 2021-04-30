@@ -2,12 +2,13 @@ import React from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import {setCartItems} from "../../actions/actions";
+import axios from "axios";
 
 export default function Checkout(){
     const dispatch = useDispatch();
     let cartList = useSelector((state) => state.cartList);
     let history = useHistory()
-
+    const user = useSelector((state) => state.user);
     return(
         <form
                 style={{ maxWidth: 400, width: "100%", margin: "30px auto" }}
@@ -61,19 +62,28 @@ export default function Checkout(){
                         className="form-control"
                     />
                 </div>
-                <Link to= "/confirmation" className="btn btn-primary">
+                <button onClick= {handlePay} className="btn btn-primary">
                     Pay
-                </Link>
+                </button>
             </form>
 
     );
 
 
     //Sends the user back to main page, and sets the content of cart to 0.
-    function handlePay(){
-        // TODO Push cartlist to backend for processing
+    function handlePay(event){
+        event.preventDefault();
 
-        dispatch(setCartItems([]));
-        history.push("/");
+        axios({
+            method: "post",
+            url: "http://localhost:8080/api/orderedProducts/saveOrder/" + user.id,
+            data: cartList
+        }).then((response) => {
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
+        //dispatch(setCartItems([]));
+        history.push("/confirmation");
     }
 }
