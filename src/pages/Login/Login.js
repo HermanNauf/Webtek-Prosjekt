@@ -1,11 +1,10 @@
 import React from "react";
 
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { setUser } from "../../actions/actions";
+import {useDispatch} from "react-redux";
+import {useHistory} from "react-router-dom";
+import {setUser} from "../../actions/actions";
 
-// TODO Switch for API-call
-import {loginlist} from "../../lists/loginlist";
+import axios from "axios";
 
 export default function Login() {
     const [username, setUsername] = React.useState("");
@@ -18,17 +17,26 @@ export default function Login() {
     function handleLogin(event) {
         event.preventDefault();
 
-        //Switch loginlist to backend-call for registered users
-        let foundUser = loginlist.filter((user) =>
-            user.username === username && user.password === password)[0];
+        const loginUser = {
+            username: username,
+            password: password
+        };
 
-        dispatch(setUser(foundUser));
-        history.push("/");
+        axios({
+            method: "post",
+            url: "http://localhost:8080/api/user/login",
+            data: loginUser
+        }).then((response) => {
+            dispatch(setUser(response.data));
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
     }
 
     return (
         <form
-            style={{ maxWidth: 400, width: "100%", margin: "30px auto" }}
+            style={{maxWidth: 400, width: "100%", margin: "30px auto"}}
             onSubmit={handleLogin}
         >
             <div className="mb-3">
@@ -39,6 +47,7 @@ export default function Login() {
                     type="text"
                     className="form-control"
                 />
+                {username}
             </div>
             <div className="mb-3">
                 <label className="form-label">Password</label>
@@ -48,6 +57,7 @@ export default function Login() {
                     type="password"
                     className="form-control"
                 />
+                {password}
             </div>
             <button type="submit" className="btn btn-primary">
                 Login

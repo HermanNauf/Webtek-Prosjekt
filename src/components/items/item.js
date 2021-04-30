@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setCartItems } from '../../actions/actions';
+import { useSelector } from "react-redux";
 import axios from "axios";
-
 
 export default function Item({ item }) {
     const { id, name, description, brand, price} = item;

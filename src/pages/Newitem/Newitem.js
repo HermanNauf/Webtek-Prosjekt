@@ -1,14 +1,14 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setItems } from "../../actions/actions";
-import { useHistory } from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
+import {setItems} from "../../actions/actions";
+import {useHistory} from "react-router-dom";
 import axios from "axios";
 
 
 export default function Newitem() {
     const [name, setName] = React.useState("");
     const [description, setDescription] = React.useState("");
-    const [brand, setBrand] =  React.useState("");
+    const [brand, setBrand] = React.useState("");
     const [price, setPrice] = React.useState(0);
     const [priceTempStr, setPriceTempStr] = React.useState("");
     const [validPrice, setValidPrice] = React.useState(false);
@@ -36,12 +36,10 @@ export default function Newitem() {
             method: "post",
             url: "http://localhost:8080/api/product/addProduct",
             data: newItem
-        })
-            .then(response => {
+        }).then(response => {
                 dispatch(setItems(response.data));
                 console.log(response.data)
-
-            }).catch(error => {
+        }).catch(error => {
             console.log(error)
         })
         history.push("/");
@@ -50,7 +48,7 @@ export default function Newitem() {
     if (user.hasOwnProperty("type") && user.type === "admin") {
         return (
             <form
-                style={{ maxWidth: 400, width: "100%", margin: "30px auto" }}
+                style={{maxWidth: 400, width: "100%", margin: "30px auto"}}
                 onSubmit={handleSubmit}
             >
                 <div className="mb-3">
