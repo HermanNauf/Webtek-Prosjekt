@@ -48,8 +48,8 @@ export default function Navbar({setSearch}) {
 
           {/* Displays greeting if logged in */}
           {user.hasOwnProperty("username") &&
-          <p>
-            Hello {user.username}!
+          <p style={{ margin: "8px"}}>
+            Logged in as: <b>{user.username}</b>
           </p>
           }
           {user.hasOwnProperty("username") ? (
