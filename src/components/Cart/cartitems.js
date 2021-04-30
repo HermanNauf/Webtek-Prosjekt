@@ -1,24 +1,27 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setCartItems } from '../../actions/actions';
+import {setCartItems, setUser} from '../../actions/actions';
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 
 export default function CartItem({ item }) {
     const { id, name, brand, price, quantity } = item;
     const dispatch = useDispatch();
     const cartList = useSelector((state) => state.cartList);
+    const user = useSelector((state) => state.user);
 
     const handleRemove = () => {
-        if (quantity === 1) {
-            cartList.splice(cartList.indexOf(item), 1);
-            dispatch(setCartItems(cartList.filter(i => i.id !== id)));
-        } else {
-            const index = cartList.findIndex((i) => i.id === item.id);
-            cartList[index].quantity -= 1;
-
-            dispatch(setCartItems([...cartList]));
-        }
+        axios({
+            method: "post",
+            url: "http://localhost:8080/api/cart/removeFromCart/" + id,
+            data: user
+        }).then((response) => {
+            dispatch(setCartItems(response.data));
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
     }
 
      return (

@@ -45,7 +45,7 @@ export default function Newitem() {
         history.push("/");
     }
 
-    if (user.hasOwnProperty("type") && user.type === "admin") {
+    if (user.hasOwnProperty("admin") && user.admin) {
         return (
             <form
                 style={{maxWidth: 400, width: "100%", margin: "30px auto"}}

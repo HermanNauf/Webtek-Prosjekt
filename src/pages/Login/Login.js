@@ -32,6 +32,8 @@ export default function Login() {
         }).catch(error => {
             console.log(error);
         })
+
+        history.push("/");
     }
 
     return (
@@ -47,7 +49,6 @@ export default function Login() {
                     type="text"
                     className="form-control"
                 />
-                {username}
             </div>
             <div className="mb-3">
                 <label className="form-label">Password</label>
@@ -57,7 +58,6 @@ export default function Login() {
                     type="password"
                     className="form-control"
                 />
-                {password}
             </div>
             <button type="submit" className="btn btn-primary">
                 Login

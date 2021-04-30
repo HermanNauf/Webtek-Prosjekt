@@ -11,7 +11,7 @@ export default function Navbar({setSearch}) {
 
   let history = useHistory();
 
-  let cartSize = 0;
+  let cartSize = cartList.length;
 
   cartList.forEach((i) => cartSize += i.quantity);
 
@@ -33,7 +33,7 @@ export default function Navbar({setSearch}) {
                 Home
               </NavLink>
             </li>
-            {user.hasOwnProperty("type") && user.type === "admin" && (
+            {user.hasOwnProperty("admin") && user.admin && (
                 <li className="nav-item">
                   <NavLink className="nav-link btn btn-outline-success" to="/new" activeClassName="active">
                     New item
