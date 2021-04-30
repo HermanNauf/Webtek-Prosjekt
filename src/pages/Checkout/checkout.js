@@ -1,11 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch} from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-import {setCartItems} from "../../actions/actions";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 export default function Checkout(){
-    const dispatch = useDispatch();
     let cartList = useSelector((state) => state.cartList);
     let history = useHistory()
     const user = useSelector((state) => state.user);

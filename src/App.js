@@ -10,7 +10,7 @@ import Newitem from "./pages/Newitem/Newitem";
 import Login from "./pages/Login/Login";
 import Checkout from "./pages/Checkout/checkout";
 import Detail from "./pages/Details/itemDetail";
-import {itemlist} from "./lists/itemlist";
+
 import {setCartItems, setItems} from "./actions/actions";
 import Cart from './components/Cart/Cart';
 import Confirmation from "./components/Cart/confirmation";

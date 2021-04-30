@@ -1,14 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Item from "../../components/items/item";
-import { useState } from "react";
-import { useEffect} from "react";
-import axios, * as others from 'axios';
 
 
 export default function Home({search}){
     const items = useSelector((state) => state.items);
-    const {data, setData} = useState(null);
     let filterItems = (item) => {
         return item.name.toLowerCase().includes(search.toLowerCase())
             || item.description.toLowerCase().includes(search.toLowerCase())
