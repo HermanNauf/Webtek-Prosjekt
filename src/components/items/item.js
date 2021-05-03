@@ -20,8 +20,9 @@ export default function Item({ item }) {
             <Link to={`/detail/${id}`} className="btn btn-info">
             Item detail
             </Link>
-            <button className="btn btn-success" onClick={addToCart}>Add to cart</button>
-
+            {user.hasOwnProperty("username") && user.hasOwnProperty("password") &&
+                <button className="btn btn-success" onClick={addToCart}>Add to cart</button>
+            }
         </div>
       </div>
      );
