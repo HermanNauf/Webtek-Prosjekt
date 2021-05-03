@@ -81,7 +81,14 @@ export default function Checkout(){
         }).catch(error => {
             console.log(error);
         })
-        //dispatch(setCartItems([]));
+        axios({
+            method: "delete",
+            url: "http://localhost:8080/api/cart/emptyCart/" + user.id,
+            }).then((response) => {
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
         history.push("/confirmation");
     }
 }
