@@ -9,11 +9,25 @@ import { useHistory } from "react-router";
 export default function Login() {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [loginError, setLoginError] = React.useState(false);
     const history = useHistory();
 
     const dispatch = useDispatch();
 
-    function handleLogin(event) {
+    const loginStatus = (status) => {
+        switch (status) {
+            case 200:
+                setLoginError(false);
+                break;
+            case 404:
+                setLoginError(true);
+                break;
+            default:
+                setLoginError(false);
+        }
+    }
+
+    const handleLogin = (event) => {
         event.preventDefault();
 
         const loginUser = {
@@ -31,9 +45,8 @@ export default function Login() {
             history.push("/");
         }).catch(error => {
             console.log(error);
+            loginStatus(error.response.status);
         })
-
-        history.push("/");
     }
 
     return (
@@ -44,7 +57,10 @@ export default function Login() {
             <div className="mb-3">
                 <label className="form-label">Username</label>
                 <input
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => {
+                        setUsername(e.target.value);
+                        setLoginError(false);
+                    }}
                     value={username}
                     type="text"
                     className="form-control"
@@ -53,12 +69,17 @@ export default function Login() {
             <div className="mb-3">
                 <label className="form-label">Password</label>
                 <input
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                        setLoginError(false);
+                    }}
                     value={password}
                     type="password"
                     className="form-control"
                 />
             </div>
+            {/* Displays message on login error */}
+            {loginError && <p>Invalid username or password.</p>}
             <button type="submit" className="btn btn-primary">
                 Login
             </button>
