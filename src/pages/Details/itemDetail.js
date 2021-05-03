@@ -47,7 +47,7 @@ export default function Detail() {
                 Name: {item.name}
                 </h1>
                 <p className ="card-subtitle mb-2 text-muted">
-                    ID: {item.id}
+                    Product ID: {item.id}
                 </p>
                 <h4 className="card-text">
                     Description: {item.description}</h4>
