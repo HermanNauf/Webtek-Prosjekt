@@ -4,10 +4,12 @@ import {useDispatch} from "react-redux";
 import {setUser} from "../../actions/actions";
 
 import axios from "axios";
+import { useHistory } from "react-router";
 
 export default function Login() {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const history = useHistory();
 
     const dispatch = useDispatch();
 
@@ -26,6 +28,7 @@ export default function Login() {
         }).then((response) => {
             dispatch(setUser(response.data));
             console.log(response.data);
+            history.push("/");
         }).catch(error => {
             console.log(error);
         })
