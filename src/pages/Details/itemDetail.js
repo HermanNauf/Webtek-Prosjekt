@@ -39,23 +39,28 @@ export default function Detail() {
     }, [id, items]);
 
     return item ? (
-        <div>
-            <h1>
-                <b>Name: {item.name}</b>
-            </h1>
-            <h4>Description: {item.description}</h4>
-            <p>
-                <b>Brand: {item.brand}</b>
-            </p>
-            <p>
-                <b>ID: {item.id}</b>
-            </p>
-            <p>
-                <b>Price: {item.price + "kr"}</b>
-            </p>
-            {user.hasOwnProperty("type") && user.type === "admin" && (
-                <button onClick={handleDelete}  className="btn btn-danger">Delete</button>
-            )}
+
+
+        <div className="card" style={{width: "18rem;", marginLeft: "35rem", marginRight: "35rem", marginTop: "5rem"}}>
+            <div className="card-body">
+                <h1 className="card-title">
+                Name: {item.name}
+                </h1>
+                <p className ="card-subtitle mb-2 text-muted">
+                    ID: {item.id}
+                </p>
+                <h4 className="card-text">
+                    Description: {item.description}</h4>
+                <p>
+                    <b>Brand: {item.brand}</b>
+                </p>
+                <p>
+                    Price: {item.price + "kr"}
+                </p>
+                {user.hasOwnProperty("type") && user.type === "admin" && (
+                    <button onClick={handleDelete}  className="btn btn-danger">Delete</button>
+                )}
+            </div>
         </div>
     ) : (<p>404: item not found</p>);
 }
