@@ -34,7 +34,7 @@ export default function Detail() {
     }
 
     React.useEffect(() => {
-        const foundItem = items.find((p) => p.id === id);
+        const foundItem = items.find((p) => p.id === parseFloat(id));
         setItem(foundItem);
     }, [id, items]);
 
