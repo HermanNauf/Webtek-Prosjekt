@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import {setCartItems} from "../../actions/actions";
 
@@ -8,7 +8,6 @@ export default function Item({ item }) {
     const { id, name, description, brand, price} = item;
 
     const user = useSelector((state) => state.user);
-
     const dispatch = useDispatch();
 
      return (
@@ -36,15 +35,17 @@ export default function Item({ item }) {
             data: item
         }).then((response) => {
             console.log(response.data);
-        }).catch((error) => {
+        }).catch(error => {
             console.log(error);
         })
 
-         axios("http://localhost:8080/api/cart/products/" + user.id)
-             .then((response) => {
-                 dispatch(setCartItems(response.data));
-             }).catch((error) => {
-                 console.log(error);
-         })
+        //updates the cart field next to the search field every time you add item
+        axios("http://localhost:8080/api/cart/products/" + user.id)
+                .then(response => {
+                    dispatch(setCartItems(response.data));
+                    console.log(response.data)
+                }).catch(error => {
+                console.log(error)
+            })
      }
 }
