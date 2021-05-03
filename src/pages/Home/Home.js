@@ -17,8 +17,9 @@ export default function Home({search}){
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
+            // alignItems: "center",
             flexWrap: "wrap",
+            marginLeft: "7rem"            
           }}>
 
             <main
