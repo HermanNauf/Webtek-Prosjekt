@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {NavLink, Link, useHistory} from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import {setUser} from "../../actions/actions";
@@ -8,12 +8,15 @@ export default function Navbar({setSearch}) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const cartList = useSelector((state) => state.cartList);
+  const [cartSize, setCartSize] = React.useState(0);
 
-  let history = useHistory();
+  const history = useHistory();
 
-  let cartSize = cartList.length;
-
-  cartList.forEach((i) => cartSize += i.quantity);
+  useEffect(() => {
+    let cartCount = 0;
+    cartList.forEach((i) => cartCount += i.quantity);
+    setCartSize(cartCount);
+  }, [cartList, dispatch])
 
   function handleLogout() {
     dispatch(setUser({}));

@@ -1,6 +1,6 @@
 import {Switch, Route} from 'react-router-dom';
 import Navbar from "./components/Navbar/Navbar";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 
@@ -20,7 +20,6 @@ import axios from 'axios';
 export default function App() {
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
-
     const user = useSelector((state) => state.user);
 
     useEffect(() => {
@@ -40,13 +39,11 @@ export default function App() {
                 console.log(error)
             })
         }
-
-
-    }, [dispatch]);
+    }, [dispatch, user.id]);
 
     return (
         <div className="App">
-            <Navbar setSearch={setSearch} user={user}/>
+            <Navbar setSearch={setSearch}/>
             <Switch>
                 <Route exact path="/">
                     <Home search={search}/>

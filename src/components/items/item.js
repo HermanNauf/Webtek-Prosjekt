@@ -36,17 +36,19 @@ export default function Item({ item }) {
             data: item
         }).then((response) => {
             console.log(response.data);
-        }).catch(error => {
-            console.log(error);
-        })
 
-        //updates the cart field next to the search field every time you add item
-        axios("http://localhost:8080/api/cart/products/" + user.id)
+            //Updates the cart field next to the search field every time you add item
+            axios("http://localhost:8080/api/cart/products/" + user.id)
                 .then(response => {
                     dispatch(setCartItems(response.data));
                     console.log(response.data)
                 }).catch(error => {
                 console.log(error)
             })
+
+        }).catch(error => {
+            console.log(error);
+        })
+
      }
 }

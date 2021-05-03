@@ -23,7 +23,7 @@ export default function Cart() {
             })
         }
 
-    }, [dispatch]);
+    }, [dispatch, user.id]);
 
     let cart = [];
 
