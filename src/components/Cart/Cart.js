@@ -53,7 +53,7 @@ export default function Cart() {
                 alignItems: "flex-start",
             }}
         >
-            <main
+            <main className = "card"
                 style={{
                     display: "flex",
                     flexDirection: "column-reverse",
@@ -62,17 +62,16 @@ export default function Cart() {
                 }}>
                 {cart.map((a) => <CartItem key={a.id} item={a}/>)}
             </main>
-            <div style={{
+            <div className = "card-body"
+                style={{
                 position: "fixed",
                 height: "auto",
                 border: "2px solid lightgrey",
                 top: "5rem",
                 right: "3rem"
-            }}>
-                <h1 style={{
-                    paddingLeft: "3rem",
-                    paddingRight: "3rem",
-                }}>Total</h1>
+                }}
+            >
+                <h1 style={{paddingLeft: "3rem",paddingRight: "3rem",}}>Total</h1>
                 <hr/>
                 <h2>Items: <br/></h2>
                 <h4 style={{whiteSpace: "pre-wrap",}}>{cartList.map((a) => a.quantity + "x " + a.name).join("\n")}</h4>
