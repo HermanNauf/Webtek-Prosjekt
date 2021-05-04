@@ -10,17 +10,17 @@ export default function Newitem() {
     const [description, setDescription] = React.useState("");
     const [brand, setBrand] = React.useState("");
     const [price, setPrice] = React.useState(0);
-    const [priceTempStr, setPriceTempStr] = React.useState("");
     const [validPrice, setValidPrice] = React.useState(false);
+    const [errorMessage, setErrorMessage] = React.useState("")
 
     let history = useHistory();
 
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
 
-    function parsePrice() {
-        setValidPrice(priceTempStr.length > 0 && !isNaN(priceTempStr));
-        setPrice(parseInt(priceTempStr));
+    function parsePrice(input) {
+        setValidPrice(!isNaN(input));
+        setPrice(parseInt(input));
     }
 
     function handleSubmit(event) {
@@ -32,17 +32,22 @@ export default function Newitem() {
             brand: brand,
             price: price
         };
-        axios({
-            method: "post",
-            url: "http://localhost:8080/api/product/addProduct",
-            data: newItem
-        }).then(response => {
+
+        if (name.length > 0 && description.length > 0 && brand.length > 0 && validPrice) {
+            axios({
+                      method: "post",
+                      url: "http://localhost:8080/api/product/addProduct",
+                      data: newItem
+                  }).then(response => {
                 dispatch(setItems(response.data));
                 console.log(response.data)
-        }).catch(error => {
-            console.log(error)
-        })
-        history.push("/");
+            }).catch(error => {
+                console.log(error)
+            })
+            history.push("/");
+        } else {
+            setErrorMessage("Fields can not be empty");
+        }
     }
 
     if (user.hasOwnProperty("admin") && user.admin) {
@@ -54,7 +59,10 @@ export default function Newitem() {
                 <div className="mb-3">
                     <label className="form-label">Name</label>
                     <input
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => {
+                            setName(e.target.value);
+                            setErrorMessage("");
+                        }}
                         value={name}
                         type="text"
                         className="form-control"
@@ -63,7 +71,10 @@ export default function Newitem() {
                 <div className="mb-3">
                     <label className="form-label">Description</label>
                     <input
-                        onChange={(e) => setDescription(e.target.value)}
+                        onChange={(e) => {
+                            setDescription(e.target.value);
+                            setErrorMessage("");
+                        }}
                         value={description}
                         type="text"
                         className="form-control"
@@ -72,7 +83,10 @@ export default function Newitem() {
                 <div className="mb-3">
                     <label className="form-label">Brand</label>
                     <input
-                        onChange={(e) => setBrand(e.target.value)}
+                        onChange={(e) => {
+                            setBrand(e.target.value);
+                            setErrorMessage("");
+                        }}
                         value={brand}
                         type="text"
                         className="form-control"
@@ -82,10 +96,9 @@ export default function Newitem() {
                     <label className="form-label">Price</label>
                     <input
                         onChange={(e) => {
-                            setPriceTempStr(e.target.value);
-                            parsePrice();
+                            parsePrice(e.target.value);
                         }}
-                        value={priceTempStr}
+                        value={price}
                         type="text"
                         className="form-control"
                     />
@@ -94,6 +107,7 @@ export default function Newitem() {
                 <button type="submit" className="btn btn-primary" disabled={!validPrice}>
                     Submit
                 </button>
+                {errorMessage.length > 0 && <p>{errorMessage}</p>}
             </form>
         );
     } else {
