@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {setUser} from "../../actions/actions";
 
 import axios from "axios";
-import { useHistory } from "react-router";
+import {NavLink, useHistory} from "react-router-dom";
 
 export default function Login() {
     const [username, setUsername] = React.useState("");
@@ -84,5 +84,6 @@ export default function Login() {
                 Login
             </button>
         </form>
+
     );
 }

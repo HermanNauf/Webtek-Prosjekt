@@ -55,6 +55,7 @@ export default function Navbar({setSearch}) {
             Logged in as: <b>{user.username}</b>
           </p>
           }
+
           {user.hasOwnProperty("username") ? (
               <button className="nav-link btn btn-outline-success" onClick={handleLogout}>
                 Log Out
@@ -63,6 +64,10 @@ export default function Navbar({setSearch}) {
                 Log In
               </NavLink>)
           }
+          {!user.hasOwnProperty("username") &&
+          <NavLink className="nav-link btn btn-outline-success" to="/register" activeClassName="active">
+            Register
+          </NavLink>}
         </div>
       </div>
     </nav>

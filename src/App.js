@@ -10,6 +10,7 @@ import Newitem from "./pages/Newitem/Newitem";
 import Login from "./pages/Login/Login";
 import Checkout from "./pages/Checkout/checkout";
 import Detail from "./pages/Details/itemDetail";
+import Register from "./pages/Registration/RegisterUser";
 
 import {setCartItems, setItems} from "./actions/actions";
 import Cart from './components/Cart/Cart';
@@ -58,6 +59,7 @@ export default function App() {
                 <Route path="/cart" component={Cart}/>
                 <Route path="/checkout" component={Checkout}/>
                 <Route path="/confirmation" component={Confirmation}/>
+                <Route path="/register" component={Register}/>
             </Switch>
         </div>
     );
