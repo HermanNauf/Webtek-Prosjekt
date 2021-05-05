@@ -57,7 +57,7 @@ export default function Detail() {
                 <p>
                     Price: {item.price + "kr"}
                 </p>
-                {user.hasOwnProperty("type") && user.type === "admin" && (
+                {user.hasOwnProperty("admin") && user.admin && (
                     <button onClick={handleDelete}  className="btn btn-danger">Delete</button>
                 )}
             </div>

@@ -10,8 +10,11 @@ export default function Confirmation(){
     let history = useHistory();
 
     return (
-        <div
+        <div className="card"
             style={{
+                marginLeft: "40rem",
+                marginRight: "40rem",
+                marginTop: "5rem",
                 display: "flex",
                 flexDirection: "row",
                 flexWrap: "no-wrap",
@@ -19,7 +22,7 @@ export default function Confirmation(){
                 alignItems: "flex-start",
             }}
         >
-            <div style={{
+            <div className= "card-body" style={{
                 border: "2px solid lightgrey",
             }}>
                 <h1 style={{
