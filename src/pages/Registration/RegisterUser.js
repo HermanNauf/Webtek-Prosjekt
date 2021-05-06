@@ -69,6 +69,7 @@ export default function Register() {
             onSubmit={handleRegistration}
         >
             <div className="mb-3">
+                <h1>Register an account</h1>
                 <label className="form-label">Username</label>
                 <input
                     onChange={(e) => {

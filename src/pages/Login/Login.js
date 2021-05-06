@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {setUser} from "../../actions/actions";
 
 import axios from "axios";
-import {NavLink, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 export default function Login() {
     const [username, setUsername] = React.useState("");
@@ -55,6 +55,7 @@ export default function Login() {
             onSubmit={handleLogin}
         >
             <div className="mb-3">
+                <h1>Login</h1>
                 <label className="form-label">Username</label>
                 <input
                     onChange={(e) => {
