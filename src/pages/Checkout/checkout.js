@@ -74,7 +74,7 @@ export default function Checkout(){
 
         axios({
             method: "post",
-            url: "http://localhost:8080/api/orderedProducts/saveOrder/" + user.id,
+            url: "http://158.38.101.212:8080/api/orderedProducts/saveOrder/" + user.id,
             data: cartList
         }).then((response) => {
             console.log(response.data);
@@ -83,7 +83,7 @@ export default function Checkout(){
         })
         axios({
             method: "delete",
-            url: "http://localhost:8080/api/cart/emptyCart/" + user.id,
+            url: "http://158.38.101.212:8080/api/cart/emptyCart/" + user.id,
             }).then((response) => {
             console.log(response.data);
         }).catch(error => {

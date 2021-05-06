@@ -37,7 +37,7 @@ export default function Login() {
 
         axios({
             method: "post",
-            url: "http://localhost:8080/api/user/login",
+            url: "http://158.38.101.212:8080/api/user/login",
             data: loginUser
         }).then((response) => {
             dispatch(setUser(response.data));

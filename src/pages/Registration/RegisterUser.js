@@ -52,7 +52,7 @@ export default function Register() {
 
         axios({
             method: "post",
-            url: "http://localhost:8080/api/user/register",
+            url: "http://158.38.101.212:8080/api/user/register",
             data: newUser
         }).then((response) => {
             console.log(response.data);
