@@ -78,7 +78,6 @@ export default function Register() {
                         checkUsername(e.target.value);
                     }}
                     value={username}
-                    pattern="[A-Za-z0-9]"
                     type="text"
                     className="form-control"
                 />
