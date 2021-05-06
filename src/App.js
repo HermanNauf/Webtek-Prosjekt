@@ -24,7 +24,7 @@ export default function App() {
     const user = useSelector((state) => state.user);
 
     useEffect(() => {
-        axios("http://localhost:8080/api/product/products")
+        axios("http://158.38.101.212:8080/api/product/products")
             .then(response => {
                 dispatch(setItems(response.data));
                 console.log(response.data)
@@ -32,7 +32,7 @@ export default function App() {
             console.log(error)
         })
         if (undefined !== user.id) {
-            axios("http://localhost:8080/api/cart/products/" + user.id)
+            axios("http://158.38.101.212:8080/api/cart/products/" + user.id)
                 .then(response => {
                     dispatch(setCartItems(response.data));
                     console.log(response.data)

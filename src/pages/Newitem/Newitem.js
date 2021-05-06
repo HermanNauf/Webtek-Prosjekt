@@ -36,7 +36,7 @@ export default function Newitem() {
         if (name.length > 0 && description.length > 0 && brand.length > 0 && validPrice) {
             axios({
                       method: "post",
-                      url: "http://localhost:8080/api/product/addProduct",
+                      url: "http://158.38.101.212:8080/api/product/addProduct",
                       data: newItem
                   }).then(response => {
                 dispatch(setItems(response.data));
