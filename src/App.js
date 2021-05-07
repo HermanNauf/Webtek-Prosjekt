@@ -6,15 +6,15 @@ import {useDispatch, useSelector} from "react-redux";
 
 // Pages
 import Home from "./pages/Home/Home";
-import Newitem from "./pages/Newitem/Newitem";
+import NewItem from "./pages/Newitem/NewItem";
 import Login from "./pages/Login/Login";
-import Checkout from "./pages/Checkout/checkout";
-import Detail from "./pages/Details/itemDetail";
+import Checkout from "./pages/Checkout/Checkout";
+import Detail from "./pages/Details/ItemDetail";
 import Register from "./pages/Registration/RegisterUser";
 
-import {setCartItems, setItems} from "./actions/actions";
+import {setCartItems, setItems} from "./actions/Actions";
 import Cart from './components/Cart/Cart';
-import Confirmation from "./components/Cart/confirmation";
+import Confirmation from "./components/Cart/Confirmation";
 import axios from 'axios';
 
 
@@ -50,7 +50,7 @@ export default function App() {
                     <Home search={search}/>
                 </Route>
                 <Route exact path="/new">
-                    <Newitem/>
+                    <NewItem/>
                 </Route>
                 <Route exact path="/login">
                     <Login/>

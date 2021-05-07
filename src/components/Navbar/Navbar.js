@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {NavLink, Link, useHistory} from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
-import {setUser} from "../../actions/actions";
+import {setUser} from "../../actions/Actions";
 import {useDispatch, useSelector} from "react-redux";
 
 export default function Navbar({setSearch}) {

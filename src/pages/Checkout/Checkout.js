@@ -8,14 +8,14 @@ export default function Checkout(){
     let history = useHistory()
     const user = useSelector((state) => state.user);
     return(
-        <form
-                style={{ maxWidth: 400, width: "100%", margin: "30px auto" }}
+        <form onSubmit={handlePay} style={{ maxWidth: 400, width: "100%", margin: "30px auto" }}
             >
                 <div className="mb-3">
                     <label className="form-label">Firstname</label>
                     <input
                         type="text"
                         className="form-control"
+                        required
                     />
                 </div>
                 <div className="mb-3">
@@ -23,13 +23,15 @@ export default function Checkout(){
                     <input
                         type="text"
                         className="form-control"
+                        required
                     />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Email-address</label>
                     <input
-                        type="text"
+                        type="email"
                         className="form-control"
+                        required
                     />
                 </div>
                 <div className="mb-3">
@@ -37,6 +39,8 @@ export default function Checkout(){
                     <input
                         type="text"
                         className="form-control"
+                        pattern="[0-9]{16}"
+                        required
                     />
                 </div>
                 <div className="mb-3">
@@ -44,6 +48,7 @@ export default function Checkout(){
                     <input
                         type="text"
                         className="form-control"
+                        required
                     />
                 </div>
                 <div className="mb-3">
@@ -51,6 +56,8 @@ export default function Checkout(){
                     <input
                         type="text"
                         className="form-control"
+                        pattern="([0-9]{2}[/]?){2}"
+                        required
                     />
                 </div>
                 <div className="mb-3">
@@ -58,9 +65,11 @@ export default function Checkout(){
                     <input
                         type="text"
                         className="form-control"
+                        pattern="[0-9]{3}"
+                        required
                     />
                 </div>
-                <button onClick= {handlePay} className="btn btn-primary">
+                <button type="submit" className="btn btn-primary">
                     Pay
                 </button>
             </form>

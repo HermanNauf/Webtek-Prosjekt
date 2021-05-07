@@ -1,7 +1,7 @@
 import React from "react";
 
 import {useDispatch} from "react-redux";
-import {setUser} from "../../actions/actions";
+import {setUser} from "../../actions/Actions";
 
 import axios from "axios";
 import {useHistory} from "react-router-dom";

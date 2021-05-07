@@ -3,9 +3,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 
-import CartItem from "./cartitems";
+import CartItem from "./CartItems";
 import axios from "axios";
-import {setCartItems} from "../../actions/actions";
+import {setCartItems} from "../../actions/Actions";
 
 export default function Cart() {
     const dispatch = useDispatch();

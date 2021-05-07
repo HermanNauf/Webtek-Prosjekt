@@ -2,7 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 
 import {useHistory, useParams} from "react-router-dom";
-import {setItems} from "../../actions/actions";
+import {setItems} from "../../actions/Actions";
 import axios from "axios";
 
 export default function Detail() {

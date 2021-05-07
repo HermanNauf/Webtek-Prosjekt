@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Item from "../../components/items/item";
+import Item from "../../components/Item/Item";
 
 
 export default function Home({search}){

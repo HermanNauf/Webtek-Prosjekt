@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch} from "react-redux";
-import { setCartItems } from "../../actions/actions";
+import { setCartItems } from "../../actions/Actions";
 import { useHistory } from "react-router-dom";
 import { calculatePrice } from "./Cart"
 

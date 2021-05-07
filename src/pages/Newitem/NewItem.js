@@ -1,11 +1,11 @@
 import React from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {setItems} from "../../actions/actions";
+import {setItems} from "../../actions/Actions";
 import {useHistory} from "react-router-dom";
 import axios from "axios";
 
 
-export default function Newitem() {
+export default function NewItem() {
     const [name, setName] = React.useState("");
     const [description, setDescription] = React.useState("");
     const [brand, setBrand] = React.useState("");
