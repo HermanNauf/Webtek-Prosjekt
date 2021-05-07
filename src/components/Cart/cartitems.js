@@ -13,7 +13,7 @@ export default function CartItem({ item }) {
     const handleRemove = () => {
         axios({
             method: "post",
-            url: "http://localhost:8080/api/cart/removeFromCart/" + id,
+            url: "http://158.38.101.212:8080/api/cart/removeFromCart/" + id,
             data: user
         }).then((response) => {
             dispatch(setCartItems(response.data));

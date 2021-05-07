@@ -1,8 +1,6 @@
-# EShop React.js App
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-To run the app, you need to have node.js installed.
 
 ## Available Scripts
 
@@ -15,7 +13,9 @@ Installs the necessary dependencies for the app.
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view your local instance in the browser.
+Open [http://158.38.101.212:3000](http://158.38.101.212:3000) to view the our deployed app in the browser.
+
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.

@@ -21,7 +21,7 @@ export default function Detail() {
 
         axios({
             method: "post",
-            url: "http://localhost:8080/api/product/delete",
+            url: "http://158.38.101.212:8080/api/product/delete",
             data: item
         })
             .catch(error => {
