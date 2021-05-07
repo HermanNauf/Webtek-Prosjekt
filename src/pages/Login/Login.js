@@ -41,7 +41,6 @@ export default function Login() {
             data: loginUser
         }).then((response) => {
             dispatch(setUser(response.data));
-            console.log(response.data);
             history.push("/");
         }).catch(error => {
             console.log(error);

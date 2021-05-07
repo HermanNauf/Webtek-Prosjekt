@@ -54,8 +54,7 @@ export default function Register() {
             method: "post",
             url: "http://158.38.101.212:8080/api/user/register",
             data: newUser
-        }).then((response) => {
-            console.log(response.data);
+        }).then(() => {
             history.push("/");
         }).catch(error => {
             console.log(error);
