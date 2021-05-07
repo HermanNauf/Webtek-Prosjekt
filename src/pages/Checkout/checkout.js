@@ -76,17 +76,13 @@ export default function Checkout(){
             method: "post",
             url: "http://158.38.101.212:8080/api/orderedProducts/saveOrder/" + user.id,
             data: cartList
-        }).then((response) => {
-            console.log(response.data);
         }).catch(error => {
             console.log(error);
         })
         axios({
             method: "delete",
             url: "http://158.38.101.212:8080/api/cart/emptyCart/" + user.id,
-            }).then((response) => {
-            console.log(response.data);
-        }).catch(error => {
+            }).catch(error => {
             console.log(error);
         })
         history.push("/confirmation");

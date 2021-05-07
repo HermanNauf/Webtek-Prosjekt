@@ -34,14 +34,11 @@ export default function Item({ item }) {
             method: "post",
             url: "http://158.38.101.212:8080/api/cart/addToCart/" + user.id,
             data: item
-        }).then((response) => {
-            console.log(response.data);
-
+        }).then(() => {
             //Updates the cart field next to the search field every time you add item
             axios("http://158.38.101.212:8080/api/cart/products/" + user.id)
                 .then(response => {
                     dispatch(setCartItems(response.data));
-                    console.log(response.data)
                 }).catch(error => {
                 console.log(error)
             })

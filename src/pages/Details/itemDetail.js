@@ -15,7 +15,6 @@ export default function Detail() {
     // We can use the `useParams` hook here to access
     // the dynamic pieces of the URL.
     let {id} = useParams();
-    console.log(id)
 
     function handleDelete() {
 

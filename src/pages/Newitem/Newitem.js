@@ -40,7 +40,6 @@ export default function Newitem() {
                       data: newItem
                   }).then(response => {
                 dispatch(setItems(response.data));
-                console.log(response.data)
             }).catch(error => {
                 console.log(error)
             })
