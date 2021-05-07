@@ -1,10 +1,16 @@
-# Getting Started with Create React App
+# EShop React.js App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+To run the app, you need to have node.js installed.
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Installs the necessary dependencies for the app.
 
 ### `npm start`
 
