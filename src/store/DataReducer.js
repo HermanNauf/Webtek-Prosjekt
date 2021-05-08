@@ -4,7 +4,7 @@ const initialState = {
     cartList: [],
 };
 
-function dataReducer(state = initialState, action) {
+function dataReducer(action, state = initialState,) {
     switch (action.type) {
         case "SET_ITEM":
             return {
