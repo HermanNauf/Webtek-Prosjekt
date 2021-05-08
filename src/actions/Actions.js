@@ -1,9 +1,9 @@
 export function setItems(items) {
     return function (dispatch) {
-      dispatch({
-        type: "SET_ITEM",
-        items: items
-      });
+        dispatch({
+            type: "SET_ITEM",
+            items: items
+        });
     };
 }
 
@@ -17,12 +17,12 @@ export function setUser(user) {
 }
 
 export function setCartItems(cartList) {
-  return function (dispatch) {
-    dispatch({
-      type: "SET_CART",
-      cartList: cartList
-    });
-  };
+    return function (dispatch) {
+        dispatch({
+            type: "SET_CART",
+            cartList: cartList
+        });
+    };
 }
 
   

@@ -1,28 +1,28 @@
 import React from 'react';
-import { useSelector, useDispatch} from "react-redux";
-import { setCartItems } from "../../actions/Actions";
-import { useHistory } from "react-router-dom";
-import { calculatePrice } from "./Cart"
+import {useSelector, useDispatch} from "react-redux";
+import {setCartItems} from "../../actions/Actions";
+import {useHistory} from "react-router-dom";
+import {calculatePrice} from "./Cart"
 
-export default function Confirmation(){
+export default function Confirmation() {
     const cartList = useSelector((state) => state.cartList);
     const dispatch = useDispatch();
     let history = useHistory();
 
     return (
         <div className="card"
-            style={{
-                marginLeft: "40rem",
-                marginRight: "40rem",
-                marginTop: "5rem",
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "no-wrap",
-                justifyContent: "space-around",
-                alignItems: "flex-start",
-            }}
+             style={{
+                 marginLeft: "40rem",
+                 marginRight: "40rem",
+                 marginTop: "5rem",
+                 display: "flex",
+                 flexDirection: "row",
+                 flexWrap: "no-wrap",
+                 justifyContent: "space-around",
+                 alignItems: "flex-start",
+             }}
         >
-            <div className= "card-body" style={{
+            <div className="card-body" style={{
                 border: "2px solid lightgrey",
             }}>
                 <h1 style={{
@@ -40,9 +40,7 @@ export default function Confirmation(){
         </div>
     )
 
-    function handlePay(){
-        // TODO Post cartList to backend for processing
-    
+    function handlePay() {
         dispatch(setCartItems([]));
         history.push("/");
     }

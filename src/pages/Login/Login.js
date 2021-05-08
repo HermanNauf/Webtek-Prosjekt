@@ -49,10 +49,7 @@ export default function Login() {
     }
 
     return (
-        <form
-            style={{maxWidth: 400, width: "100%", margin: "30px auto"}}
-            onSubmit={handleLogin}
-        >
+        <form style={{maxWidth: 400, width: "100%", margin: "30px auto"}} onSubmit={handleLogin}>
             <div className="mb-3">
                 <h1>Login</h1>
                 <label className="form-label">Username</label>

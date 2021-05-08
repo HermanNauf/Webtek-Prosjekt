@@ -11,9 +11,6 @@ export default function Detail() {
     const user = useSelector((state) => state.user);
 
     let history = useHistory();
-
-    // We can use the `useParams` hook here to access
-    // the dynamic pieces of the URL.
     let {id} = useParams();
 
     function handleDelete() {
@@ -22,14 +19,13 @@ export default function Detail() {
             method: "post",
             url: "http://158.38.101.212:8080/api/product/delete",
             data: item
-        })
-            .catch(error => {
+        }).catch(error => {
             console.log(error)
         })
 
-            items.splice(items.indexOf(item), 1);
-            setItems(items.filter(p => p.id !== item.id));
-            history.push("/");
+        items.splice(items.indexOf(item), 1);
+        setItems(items.filter(p => p.id !== item.id));
+        history.push("/");
     }
 
     React.useEffect(() => {
@@ -38,14 +34,12 @@ export default function Detail() {
     }, [id, items]);
 
     return item ? (
-
-
         <div className="card" style={{width: "18rem;", marginLeft: "35rem", marginRight: "35rem", marginTop: "5rem"}}>
             <div className="card-body">
                 <h1 className="card-title">
-                Name: {item.name}
+                    Name: {item.name}
                 </h1>
-                <p className ="card-subtitle mb-2 text-muted">
+                <p className="card-subtitle mb-2 text-muted">
                     Product ID: {item.id}
                 </p>
                 <h4 className="card-text">
@@ -57,7 +51,7 @@ export default function Detail() {
                     Price: {item.price + "kr"}
                 </p>
                 {user.hasOwnProperty("admin") && user.admin && (
-                    <button onClick={handleDelete}  className="btn btn-danger">Delete</button>
+                    <button onClick={handleDelete} className="btn btn-danger">Delete</button>
                 )}
             </div>
         </div>

@@ -4,7 +4,6 @@ import {setItems} from "../../actions/Actions";
 import {useHistory} from "react-router-dom";
 import axios from "axios";
 
-
 export default function NewItem() {
     const [name, setName] = React.useState("");
     const [description, setDescription] = React.useState("");
@@ -35,10 +34,10 @@ export default function NewItem() {
 
         if (name.length > 0 && description.length > 0 && brand.length > 0 && validPrice) {
             axios({
-                      method: "post",
-                      url: "http://158.38.101.212:8080/api/product/addProduct",
-                      data: newItem
-                  }).then(response => {
+                method: "post",
+                url: "http://158.38.101.212:8080/api/product/addProduct",
+                data: newItem
+            }).then(response => {
                 dispatch(setItems(response.data));
             }).catch(error => {
                 console.log(error)

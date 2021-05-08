@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 export default function Register() {
     const [username, setUsername] = React.useState("");
@@ -29,6 +29,7 @@ export default function Register() {
             setValidPassword(false);
         }
     }
+
     const handleRegistrationError = (status) => {
         switch (status) {
             case 400:
