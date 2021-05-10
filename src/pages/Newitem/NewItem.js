@@ -18,8 +18,10 @@ export default function NewItem() {
     const user = useSelector((state) => state.user);
 
     function parsePrice(input) {
-        setValidPrice(!isNaN(input));
-        setPrice(input);
+        setValidPrice(!isNaN(input) && input.length > 0);
+        if (validPrice) {
+            setPrice(input);
+        }
     }
 
     function handleSubmit(event) {
@@ -99,7 +101,7 @@ export default function NewItem() {
                         value={price}
                         type="text"
                         className="form-control"
-                        pattern="[0-9]"
+                        pattern="[0-9]+"
                     />
                     {!validPrice && <p color="red">Invalid price!</p>}
                 </div>
