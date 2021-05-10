@@ -8,7 +8,7 @@ export default function NewItem() {
     const [name, setName] = React.useState("");
     const [description, setDescription] = React.useState("");
     const [brand, setBrand] = React.useState("");
-    const [price, setPrice] = React.useState(0);
+    const [price, setPrice] = React.useState("");
     const [validPrice, setValidPrice] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState("")
 
@@ -19,7 +19,7 @@ export default function NewItem() {
 
     function parsePrice(input) {
         setValidPrice(!isNaN(input));
-        setPrice(parseInt(input));
+        setPrice(input);
     }
 
     function handleSubmit(event) {
@@ -29,7 +29,7 @@ export default function NewItem() {
             name: name,
             description: description,
             brand: brand,
-            price: price
+            price: parseInt(price)
         };
 
         if (name.length > 0 && description.length > 0 && brand.length > 0 && validPrice) {
@@ -99,6 +99,7 @@ export default function NewItem() {
                         value={price}
                         type="text"
                         className="form-control"
+                        pattern="[0-9]"
                     />
                     {!validPrice && <p color="red">Invalid price!</p>}
                 </div>

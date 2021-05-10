@@ -14,7 +14,7 @@ Installs the necessary dependencies for the app.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view your local instance in the browser.
-Open [http://158.38.101.212:3000](http://158.38.101.212:3000) to view the our deployed app in the browser.
+Open [http://hermanan-eshop.uials.no/](http://hermanan-eshop.uials.no/) to view the our deployed app in the browser.
 
 
 The page will reload if you make edits.\
