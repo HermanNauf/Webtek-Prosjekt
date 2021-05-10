@@ -14,7 +14,7 @@ export default function Cart() {
 
     useEffect(() => {
         if (user.id !== undefined) {
-            axios("http://localhost:8080/api/cart/products/" + user.id)
+            axios("http://158.38.101.212:8080/api/cart/products/" + user.id)
                 .then(response => {
                     dispatch(setCartItems(response.data));
                     console.log(response.data)
@@ -39,7 +39,6 @@ export default function Cart() {
         }
         cart = [...cart, product]
     })
-
 
     return (
         <div

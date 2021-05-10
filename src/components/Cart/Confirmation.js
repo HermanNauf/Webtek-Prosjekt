@@ -35,12 +35,12 @@ export default function Confirmation() {
                 <h5>
                     <hr/>
                     Total: {calculatePrice(cartList)}</h5>
-                <button onClick={handlePay} className="btn btn-success" to="/checkout">Ok</button>
+                <button onClick={handleConfirm} className="btn btn-success">Ok</button>
             </div>
         </div>
     )
 
-    function handlePay() {
+    function handleConfirm() {
         dispatch(setCartItems([]));
         history.push("/");
     }
